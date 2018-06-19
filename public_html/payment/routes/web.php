@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 // Route for stripe.
 Route::resource('stripe','StripeController');
 
 // Route for stripe payment form.
-Route::get('stripe', 'StripeController@payWithStripe')->name('stripform');
+Route::get('/', 'StripeController@payWithStripe')->name('stripform');
 
 // Route for stripe post request.
 Route::post('stripe', 'StripeController@postPaymentWithStripe')->name('paywithstripe');

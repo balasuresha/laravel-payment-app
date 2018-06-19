@@ -36,7 +36,7 @@
                         <div class="form-group{{ $errors->has('ccExpiryMonth') ? ' has-error' : '' }}">
                             <label for="ccExpiryMonth" class="col-md-4 control-label">Expiry Month</label>
                             <div class="col-md-6">
-                                <input id="ccExpiryMonth" type="text" class="form-control" name="ccExpiryMonth" value="{{ old('ccExpiryMonth') }}" autofocus>
+                                <input id="ccExpiryMonth" type="text" class="form-control" name="ccExpiryMonth" placeholder="12" value="{{ old('ccExpiryMonth') }}" autofocus>
                                 @if ($errors->has('ccExpiryMonth'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('ccExpiryMonth') }}</strong>
@@ -47,7 +47,7 @@
                         <div class="form-group{{ $errors->has('ccExpiryYear') ? ' has-error' : '' }}">
                             <label for="ccExpiryYear" class="col-md-4 control-label">Expiry Year</label>
                             <div class="col-md-6">
-                                <input id="ccExpiryYear" type="text" class="form-control" name="ccExpiryYear" value="{{ old('ccExpiryYear') }}" autofocus>
+                                <input id="ccExpiryYear" type="text" class="form-control" name="ccExpiryYear" placeholder="2022" value="{{ old('ccExpiryYear') }}" autofocus>
                                 @if ($errors->has('ccExpiryYear'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('ccExpiryYear') }}</strong>

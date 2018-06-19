@@ -63,16 +63,14 @@ class StripeController extends Controller
                     'card' => $token['id'],
                     'currency' => 'USD',
                     'amount'   => $request->get('amount'),
-                    'description' => 'Add in wallet',
+                    'description' => 'Payment transfer',
+                    'receipt_email' => 'balasureshfsp@gmail.com'
                 ]);
                 if($charge['status'] == 'succeeded') {
-                    /**
-                    * Write Here Your Database insert logic.
-                    */
-                    \Session::put('success','Money add successfully in wallet');
+                    \Session::put('success','Payment done successfully!');
                     return redirect()->route('stripform');
                 } else {
-                    \Session::put('error','Money not add in wallet!!');
+                    \Session::put('error','Failed transaction!!');
                     return redirect()->route('stripform');
                 }
             } catch (Exception $e) {
@@ -88,5 +86,5 @@ class StripeController extends Controller
         }
         \Session::put('error','All fields are required!!');
         return redirect()->route('stripform');
-    }    
-}
+    }
+    }
