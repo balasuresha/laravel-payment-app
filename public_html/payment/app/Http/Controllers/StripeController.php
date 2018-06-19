@@ -97,7 +97,7 @@ class StripeController extends Controller
       $data = array();  
       Mail::send('email.welcome', $data, function ($message) {
             $message->from('admin@app.com', 'Admin');
-            $message->to('balasuresha@mailinator.com')->subject('Payment done!');
+            $message->to('praveen@sparkouttech.com')->subject('Payment done!');
       });
    }
     
