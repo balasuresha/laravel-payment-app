@@ -119,5 +119,10 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+    
+//    'mailgun' => [
+//        'domain' => 'sandbox220a741467004841a503fb16422afad4.mailgun.org',
+//        'secret' => 'f07782e765a92c1d25f8ec5948dac5b2-0470a1f7-084ce0d5',
+//    ],
 
 ];

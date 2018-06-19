@@ -8,6 +8,7 @@ use URL;
 use Session;
 use Redirect;
 use Input;
+use Mail;
 use App\User;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Stripe\Error\Card;
@@ -67,6 +68,7 @@ class StripeController extends Controller
                     'receipt_email' => 'balasureshfsp@gmail.com'
                 ]);
                 if($charge['status'] == 'succeeded') {
+                    $data = $this->email();
                     \Session::put('success','Payment done successfully!');
                     return redirect()->route('stripform');
                 } else {
@@ -87,4 +89,16 @@ class StripeController extends Controller
         \Session::put('error','All fields are required!!');
         return redirect()->route('stripform');
     }
+    
+    /*
+     * Sending mail when payment done
+     */
+    public function email() {
+      $data = array();  
+      Mail::send('email.welcome', $data, function ($message) {
+            $message->from('admin@app.com', 'Admin');
+            $message->to('balasuresha@mailinator.com')->subject('Payment done!');
+      });
+   }
+    
     }
